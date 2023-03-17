@@ -1,15 +1,12 @@
 import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { Spinner } from '@chakra-ui/react';
 import { HomeIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Profile() {
-  const { user, error, isLoading } = useUser();
+  const { user } = useUser();
 
-  if (isLoading) return <Spinner size="lg" />;
-  if (error) return <div>{error.message}</div>;
 
   return (
     user && (
