@@ -58,11 +58,18 @@ const RecipeSuggestions: React.FC<RecipeSuggestionsProps> = ({ recipeSuggestions
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
  {!localRecipeSuggestions.length && !recipeSuggestions ? (
+  <>
   <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-200 relative">
     <p className="text-gray-600 mb-2 font-bold">
       add ingredients to pantry then click generate recipes for suggestions
     </p>
   </div>
+  <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-200 relative">
+  <p className="text-gray-600 mb-2 font-bold">
+    the ai is small brain, it may give some wonky recipes. if you don't like the recipes, just click the button again to get a new ones
+    </p>
+    </div>
+    </>
 ) : (
   paragraphs.map((paragraph, index) => (
           <div key={index} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-200 relative">
