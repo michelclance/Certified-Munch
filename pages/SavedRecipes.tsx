@@ -2,13 +2,12 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
-  FolderIcon,
   InboxIcon,
-  PresentationChartBarIcon,
   XMarkIcon,
   BuildingStorefrontIcon,
   ChevronLeftIcon,
   HomeIcon,
+  CurrencyDollarIcon
   
 } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
@@ -17,14 +16,11 @@ import Image from 'next/image';
 import Slider from '../components/rightslider';
 
 
-
-
-
 const navigation = [
   { name: 'Home', href: '/', icon: HomeIcon, current: false },
   { name: 'Pantry', href: '/Pantry', icon: BuildingStorefrontIcon, current: false },
-  { name: 'Explainer (coming soon)', href: '#', icon: PresentationChartBarIcon, current: false },
   { name: 'Feedback', href: '/Feedback', icon: InboxIcon, current: false },
+  { name: 'Donate', href: '/Donate', icon: CurrencyDollarIcon, current: false },
 ]
 
 function classNames(...classes: (string | undefined | null)[]): string {

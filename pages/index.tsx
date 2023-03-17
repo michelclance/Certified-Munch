@@ -19,7 +19,6 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 
 const navigation = [
   { name: 'Pantry', href: '/Pantry', icon: BuildingStorefrontIcon, current: false },
-  { name: 'Explainer (coming soon)', href: '#', icon: PresentationChartBarIcon, current: false },
   { name: 'Saved Recipes', href: '/SavedRecipes', icon: FolderIcon, current: false },
   { name: 'Feedback', href: '/Feedback', icon: InboxIcon, current: false },
   { name: 'Donate', href: '/Donate', icon: CurrencyDollarIcon, current: false },
