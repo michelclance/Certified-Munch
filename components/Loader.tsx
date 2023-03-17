@@ -17,7 +17,7 @@ const Loader = () => {
         alignItems: "center",
         zIndex: 9999,
         flexDirection: "column",
-        backdropFilter: "blur(10px)",
+        backdropFilter: "blur(20px)",
         backgroundColor: "rgba(0, 0, 0, 0.5)",
       }}
     >
