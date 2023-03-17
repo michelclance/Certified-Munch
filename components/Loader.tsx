@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Loader = () => {
   return (
@@ -30,7 +31,7 @@ const Loader = () => {
       >
         Your little ass is going to wait. You got that?
       </p>
-      <img src="/images/loading.gif" alt="loading..." />
+      <Image src="/images/loading.gif" alt="loading..." />
     </div>
   );
 };

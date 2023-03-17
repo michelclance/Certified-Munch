@@ -2,6 +2,8 @@ import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { Spinner } from '@chakra-ui/react';
 import { HomeIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Profile() {
   const { user, error, isLoading } = useUser();
@@ -22,9 +24,9 @@ export default function Profile() {
       
           <ul className="flex">
             <li className="ml-4">
-              <a href="/">
-                <HomeIcon className='w-8 h-8' />
-              </a>
+              <Link href="/">
+              <HomeIcon className='w-8 h-8' />
+              </Link>
             </li>
           </ul>
         </nav>
@@ -34,7 +36,7 @@ export default function Profile() {
         
             </div>
             <div className="flex flex-col items-center">
-              <img
+              <Image
                 className="mx-auto w-32 h-32 rounded-full mb-4"
                 src={user.picture}
                 alt={user.name}

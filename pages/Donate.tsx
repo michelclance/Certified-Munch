@@ -1,5 +1,7 @@
 import { HomeIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 
 export default function Donate() {
   return (
@@ -7,13 +9,13 @@ export default function Donate() {
               <nav className="flex items-center justify-between mb-8">
           <ul className="flex">
             <li className="ml-4">
-              <a href="/">
+              <Link href="/">
                 <HomeIcon className='w-8 h-8' />
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
-      <img src="/images/Donate.jpg" alt="Image 1" className="w-64 h-86" />
+      <Image src="/images/Donate.jpg" alt="Image 1" className="w-64 h-86" />
     
     </div>
   );

@@ -12,6 +12,7 @@ import {
 import Image from 'next/image';
 import Form from './Form';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import Link from 'next/link';
 
 
 const navigation = [
@@ -107,22 +108,22 @@ const Sidebar = () => {
                       ))}
                     </nav>
                   </div>
-                  <div>
-        {user ? (
-          <div>
-            <a style={{ marginRight: 8 }} href="/profile">
-              Profile
-            </a>
-            <button>
-              <a href="/api/auth/logout">Logout</a>
-            </button>
-          </div>
-        ) : (
-          <button>
-            <a href="/api/auth/login">Login</a>
-          </button>
-        )}
-      </div>
+                  <div className="flex justify-between">
+  {user ? (
+    <>
+      <Link className="text-gray-500 hover:text-gray-700 py-2 px-4" href="/profile">
+        Profile
+      </Link>
+      <Link className="text-red-500 hover:text-red-700 py-2 px-4" href="/api/auth/logout">
+        Logout
+      </Link>
+    </>
+  ) : (
+    <Link className="text-gray-500 py-2 px-4 rounded" href="/api/auth/login">
+      Login
+    </Link>
+  )}
+</div>
                 </Dialog.Panel>
               </Transition.Child>
               <div className="w-14 flex-shrink-0">{/* Force sidebar to shrink to fit close icon */}</div>
@@ -165,22 +166,22 @@ const Sidebar = () => {
                 ))}
               </nav>
             </div>
-            <div>
-        {user ? (
-          <div>
-            <a style={{ marginRight: 8 }} href="/profile">
-              Profile
-            </a>
-            <button>
-              <a href="/api/auth/logout">Logout</a>
-            </button>
-          </div>
-        ) : (
-          <button>
-            <a href="/api/auth/login">Login</a>
-          </button>
-        )}
-      </div>
+            <div className="flex justify-between">
+  {user ? (
+    <>
+      <Link className="text-gray-500 hover:text-gray-700 py-2 px-4" href="/profile">
+        Profile
+      </Link>
+      <Link className="text-red-500 hover:text-red-700 py-2 px-4" href="/api/auth/logout">
+        Logout
+      </Link>
+    </>
+  ) : (
+    <Link className="text-gray-500 py-2 px-4 rounded" href="/api/auth/login">
+      Login
+    </Link>
+  )}
+</div>
           </div>
         </div>
         <div className="flex flex-1 flex-col md:pl-64">

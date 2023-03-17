@@ -15,6 +15,7 @@ import RecipeSuggestions from '../components/RecipeSuggestions'
 import Image from 'next/image';
 import Slider from '../components/rightslider';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import Link from 'next/link'
 
 
 const navigation = [
@@ -128,17 +129,17 @@ const NavBar = () => {
                   <div className="flex justify-between">
   {user ? (
     <>
-      <a className="text-gray-500 hover:text-gray-700 py-2 px-4" href="/profile">
+      <Link className="text-gray-500 hover:text-gray-700 py-2 px-4" href="/profile">
         Profile
-      </a>
-      <a className="text-red-500 hover:text-red-700 py-2 px-4" href="/api/auth/logout">
+      </Link>
+      <Link className="text-red-500 hover:text-red-700 py-2 px-4" href="/api/auth/logout">
         Logout
-      </a>
+      </Link>
     </>
   ) : (
-    <a className="text-gray-500 py-2 px-4 rounded" href="/api/auth/login">
+    <Link className="text-gray-500 py-2 px-4 rounded" href="/api/auth/login">
       Login
-    </a>
+    </Link>
   )}
 </div>
 
@@ -188,17 +189,17 @@ const NavBar = () => {
             <div className="flex justify-between">
   {user ? (
     <>
-      <a className="text-gray-500 hover:text-gray-700 py-2 px-4" href="/profile">
+      <Link className="text-gray-500 hover:text-gray-700 py-2 px-4" href="/profile">
         Profile
-      </a>
-      <a className="text-red-500 hover:text-red-700 py-2 px-4" href="/api/auth/logout">
+      </Link>
+      <Link className="text-red-500 hover:text-red-700 py-2 px-4" href="/api/auth/logout">
         Logout
-      </a>
+      </Link>
     </>
   ) : (
-    <a className="text-gray-500 py-2 px-4 rounded" href="/api/auth/login">
+    <Link className="text-gray-500 py-2 px-4 rounded" href="/api/auth/login">
       Login
-    </a>
+    </Link>
   )}
 </div>
           </div>
