@@ -66,7 +66,7 @@ const RecipeSuggestions: React.FC<RecipeSuggestionsProps> = ({ recipeSuggestions
   </div>
   <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-200 relative">
   <p className="text-gray-600 mb-2 font-bold">
-    the ai is small brain, it may give some wonky recipes. just click the button again to get a new ones
+    the ai is small brain, it may give some wonky recipes. just click the button again to get new recipes
     </p>
     </div>
     </>
