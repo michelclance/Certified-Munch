@@ -115,14 +115,17 @@ const Form: React.FC = () => {
       // Set category based on selected ingredient
       setNewIngredient((prevState) => ({
         ...prevState,
-        category: ingredientCategoryMap[selectedItem] || '',
+        category: ingredientCategoryMap[selectedItem as keyof typeof ingredientCategoryMap] || '',
       }));
     },
   });
 
   const handleAddIngredient = () => {
     // Split the input value by comma and trim whitespace
-    const ingredients = newIngredient.name.split(',').map(item => item.trim());
+    const ingredients = newIngredient.name
+  ? newIngredient.name.split(',').map((item) => item.trim())
+  : [];
+
   
     // Add each ingredient individually
     ingredients.forEach(ingredientName => {
@@ -130,7 +133,7 @@ const Form: React.FC = () => {
         addIngredient({
           id: Date.now().toString(),
           name: ingredientName,
-          category: newIngredient.category || ingredientCategoryMap[ingredientName] || '',
+          category: newIngredient.category || ingredientCategoryMap[ingredientName as keyof typeof ingredientCategoryMap] || '',
         });
       }
     });
@@ -179,7 +182,7 @@ const Form: React.FC = () => {
             >
               {isOpen &&
                 ingredientsList
-                  .filter((item) => item.toLowerCase().includes(newIngredient.name.toLowerCase()))
+                .filter((item) => item.toLowerCase().includes((newIngredient.name as string).toLowerCase()))
                   .map((item, index) => (
                     <li
                       key={item}
