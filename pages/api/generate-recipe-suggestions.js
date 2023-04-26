@@ -77,7 +77,7 @@ export default async function handler(req, res) {
     }
   };
   
-  const { ingredients } = req.body;
+  const { ingredients, mood } = req.body;
   if (!ingredients) {
     res.status(400).json({
       error: {
@@ -86,9 +86,9 @@ export default async function handler(req, res) {
     });
     return;
   }
-
+  
   try {
-    const recipeSuggestions = await generateRecipes(ingredients);
+    const recipeSuggestions = await generateRecipes(ingredients, mood); // Add the mood parameter here
     res.status(200).send(recipeSuggestions);
   } catch (error) {
     console.error(`Error with OpenAI API request: ${error.message}`);

@@ -4,7 +4,6 @@ import {
   Bars3Icon,
   FolderIcon,
   InboxIcon,
-  PresentationChartBarIcon,
   XMarkIcon,
   HomeIcon,
   CurrencyDollarIcon

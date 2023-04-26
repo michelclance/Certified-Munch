@@ -16,7 +16,7 @@ import Image from 'next/image';
 import Slider from '../components/rightslider';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Link from 'next/link'
-
+import Chatbot from '../components/Chefbot';
 
 const navigation = [
   { name: 'Pantry', href: '/Pantry', icon: BuildingStorefrontIcon, current: false },
@@ -34,6 +34,9 @@ const NavBar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const { user } = useUser();
+
+  const [showChatbot, setShowChatbot] = useState(false);
+
   
   return (
     <>
@@ -216,19 +219,32 @@ const NavBar = () => {
             </button>
           </div>
           <main className="flex-1">
-      <div className="py-6">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-          <h1 className="text-2xl font-semibold text-gray-900">Recipe Suggestions</h1>
-        </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="py-4">
-            <div>
-              <RecipeSuggestions recipeSuggestions={recipeSuggestions} />
-            </div>
+  <div className="py-6">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+  <div className="flex">
+    <h1 className="text-2xl font-semibold text-gray-900">Recipe Suggestions</h1>
+    <button
+      className="bg-blue-500 text-white px-4 py-2 rounded-md ml-4"
+      onClick={() => setShowChatbot((prevShowChatbot) => !prevShowChatbot)}
+    >
+      {showChatbot ? 'Hide Chef AI' : 'Show Chef AI'}
+    </button>
+  </div>
+</div>
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+      <div className="py-4">
+        {showChatbot ? (
+          <Chatbot />
+        ) : (
+          <div>
+            <RecipeSuggestions recipeSuggestions={recipeSuggestions} />
           </div>
-        </div>
+        )}
       </div>
-    </main>
+    </div>
+  </div>
+</main>
+
         </div>
       </div>
     </>
