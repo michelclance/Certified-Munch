@@ -13,28 +13,33 @@ export default function Chatbot() {
 
   const sendMessage = async (e: FormEvent) => {
     e.preventDefault();
-
+  
     if (userMessage.trim() === '') {
       return;
     }
-
+  
     // Add user message to the messages array
     setMessages((prevMessages) => [...prevMessages, { sender: 'User', text: userMessage }]);
-
+  
     // Call the API
     try {
       const response = await axios.post('/api/chefbot', { messages: [...messages.map((message) => message.text), userMessage] });
-
+  
       // Add assistant response to the messages array
       setMessages((prevMessages) => [...prevMessages, { sender: 'Assistant', text: response.data.assistant }]);
-    } catch (error) {
-      console.error('Error calling chatbot API:', error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error('Error calling chatbot API:', error.message);
+      } else {
+        console.error('Error calling chatbot API:', error);
+      }
       setMessages((prevMessages) => [...prevMessages, { sender: 'Assistant', text: 'Error occurred while processing your request. Please try again later.' }]);
     }
-
+  
     // Clear the user message input
     setUserMessage('');
   };
+  
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUserMessage(e.target.value);
