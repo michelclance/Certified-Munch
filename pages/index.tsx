@@ -23,6 +23,7 @@ const navigation = [
   { name: 'Saved Recipes', href: '/SavedRecipes', icon: FolderIcon, current: false },
   { name: 'Feedback', href: '/Feedback', icon: InboxIcon, current: false },
   { name: 'Donate', href: '/Donate', icon: CurrencyDollarIcon, current: false },
+  { name: 'Shopping List', href: '/Shoppinglist', icon: PresentationChartBarIcon, current: false },
 ]
 
 function classNames(...classes: (string | undefined | null)[]): string {

@@ -5,6 +5,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react'
+import { ShoppingListContextProvider } from '../components/ShoppingListContext';
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -13,8 +14,10 @@ export default function App({ Component, pageProps }: AppProps) {
       <FormContextProvider>
         <RecipeProvider>
         <UserProvider>
+        <ShoppingListContextProvider>
       <Component {...pageProps} />
       <Analytics />
+      </ShoppingListContextProvider>
       </UserProvider>
         </RecipeProvider>
       </FormContextProvider>

@@ -4,18 +4,21 @@ export interface Ingredient {
   id: string;
   name: string;
   category: string;
+  selected?: boolean;
 }
 
 export interface FormContextValues {
   form: Ingredient[];
   addIngredient: (ingredient: Ingredient) => void;
   removeIngredient: (ingredientId: string) => void;
+  addIngredientsFromShoppingList: (shoppingList: Ingredient[]) => void;
 }
 
 export const FormContext = createContext({
   form: [] as Array<{ id:string; name: string; category: string }>,
   addIngredient: (ingredient: { id: string; name: string; category: string }) => {},
-  removeIngredient: (id: string) => {}
+  removeIngredient: (id: string) => {},
+  addIngredientsFromShoppingList: (shoppingList: Ingredient[]) => {},
 });
 
 interface FormContextProviderProps {
@@ -41,9 +44,17 @@ const FormContextProvider: React.FC<FormContextProviderProps> = ({ children }) =
       return newForm;
     });
   };
+
+  const addIngredientsFromShoppingList = (shoppingList: Ingredient[]) => {
+    setForm((prevForm) => {
+      const newForm = [...prevForm, ...shoppingList];
+      localStorage.setItem('form', JSON.stringify(newForm));
+      return newForm;
+    });
+  };
   
   return (
-    <FormContext.Provider value={{ form, addIngredient, removeIngredient }}>
+    <FormContext.Provider value={{ form, addIngredient, removeIngredient, addIngredientsFromShoppingList }}>
       {children}
     </FormContext.Provider>
   );

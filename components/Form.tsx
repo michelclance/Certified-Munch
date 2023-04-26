@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, ChangeEvent } from 'react';
+import React, { useState, useContext, useEffect,  } from 'react';
 import { FormContext, Ingredient } from '../components/contextobject';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -19,7 +19,7 @@ const ingredientCategoryMap = {
   Bread: 'Grain 🌾',
 };
 
-const categories = [
+export const categories = [
   'Baking Ingredients 🍰',
   'Fruit 🍎',
   'Vegetable 🥕',

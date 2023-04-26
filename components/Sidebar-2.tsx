@@ -7,34 +7,50 @@ import {
   XMarkIcon,
   HomeIcon,
   CurrencyDollarIcon,
-  PresentationChartBarIcon
+  BuildingStorefrontIcon,
+  ChevronLeftIcon
 } from '@heroicons/react/24/outline'
 import Image from 'next/image';
 import Form from './Form';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Link from 'next/link';
+import ShoppingList from './ShoppingListCompo';
+import Slider from '../components/rightslider';
 
 
 const navigation = [
   { name: 'Home', href: '/', icon: HomeIcon, current: false },
+  { name: 'Pantry', href: '/Pantry', icon: BuildingStorefrontIcon, current: false },
   { name: 'Saved Recipes', href: '/SavedRecipes', icon: FolderIcon, current: false },
   { name: 'Feedback', href: '/Feedback', icon: InboxIcon, current: false },
   { name: 'Donate', href: '/Donate', icon: CurrencyDollarIcon, current: false },
-  { name: 'Shopping List', href: '/Shoppinglist', icon: PresentationChartBarIcon, current: false },
 ]
 
 function classNames(...classes: (string | undefined | null)[]): string {
   return classes.filter(Boolean).join(' ')
 }
-const Sidebar = () => {
+const SideBarTwo = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user } = useUser();
+  const [open, setOpen] = useState(false);
  
   return (
-    <div > 
+    <div> 
     <header>
       <title>Certified Munch</title>
     </header>
+    <div>
+    <button
+  type="button"
+  onClick={() => setOpen(true)}
+  className="absolute right-4 top-4 w-16 h-16 text-black rounded-full flex items-center justify-center focus:outline-none"
+>
+  <ChevronLeftIcon className="h-6 w-6" />
+</button>
+
+
+      <Slider open={open} setOpen={setOpen} />
+    </div>
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog as="div" className="relative z-40 md:hidden" onClose={setSidebarOpen}>
@@ -204,7 +220,7 @@ const Sidebar = () => {
           <div className="py-4">
           <div className="flex flex-col h-screen">
   <div className="flex-grow">
-    <Form />
+    <ShoppingList />
   </div>
 </div>
           </div>
@@ -217,4 +233,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default SideBarTwo
