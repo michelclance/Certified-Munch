@@ -45,17 +45,14 @@ const ShoppingList: React.FC = () => {
   
 
   return (
-    
     <div className="min-h-screen">
-            {showNotification && (
-      <ListNotification
-        onClose={() => setShowNotification(false)}
-      />
-    )}
-      <div className="container mx-auto py-10">
-        <h1 className="text-4xl mb-6 text-center">Shopping List</h1>
-        <div className="bg-white p-6 rounded shadow">
-          <ul className="space-y-4">
+      {showNotification && (
+        <ListNotification onClose={() => setShowNotification(false)} />
+      )}
+      <div className="container mx-auto px-4 sm:px-0 py-10">
+        <h1 className="text-2xl sm:text-4xl mb-6 text-center">Shopping List</h1>
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow">
+          <ul className="space-y-2 sm:space-y-4">
             <li className="flex items-center">
               <input
                 type="checkbox"
@@ -68,9 +65,9 @@ const ShoppingList: React.FC = () => {
             {shoppingList.map((item) => (
               <li
                 key={item.id}
-                className="bg-gray-200 p-4 rounded flex justify-between items-center"
+                className="bg-gray-200 p-2 sm:p-4 rounded-lg flex justify-between items-center space-x-2"
               >
-                <div className="flex items-center">
+                <div className="flex items-center space-x-2">
                   <input
                     type="checkbox"
                     checked={selectedItems.has(item.id)}
@@ -92,50 +89,50 @@ const ShoppingList: React.FC = () => {
                       updateItem({ ...item, name: e.target.value })
                     }
                     placeholder="Item name"
-                    className="border p-2 rounded"
+                    className="border p-1 sm:p-2 rounded w-full sm:w-auto"
                   />
-<CategoryDropdown
-  selectedItem={item.category}
-    onChange={(selectedCategory: string) =>
-    updateItem({ ...item, category: selectedCategory })
-  }
-/>
-
                 </div>
-                <button
-                  onClick={() => removeItem(item.id)}
-                  className="bg-red-500 text-white px-4 py-2 rounded"
-                >
-                  Remove
-                </button>
+                <div className="flex items-center space-x-2">
+                  <CategoryDropdown
+                    selectedItem={item.category}
+                    onChange={(selectedCategory: string) =>
+                      updateItem({ ...item, category: selectedCategory })
+                    }
+                  />
+                  <button
+                    onClick={() => removeItem(item.id)}
+                    className="bg-red-500 text-white px-2 sm:px-4 py-1 sm:py-2 ml-2 rounded"
+                  >
+                    Remove
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
-          <div className="flex justify-between items-center">
-   
-          <button
-            onClick={handleAddItem}
-            className="bg-blue-500 text-white px-4 py-2 mt-4 rounded"
-          >
-            Add Item
-          </button>
-          <button
-            onClick={handleSendSelectedItemsToForm}
-            className="bg-green-500 text-white px-4 mt-4 py-2 rounded"
-          >
-            Send selected items to Form
-          </button>
-          <button
-            onClick={handleClearSelectedItems}
-            className="bg-red-500 text-white mt-4 px-4 py-2 rounded"
-          >
-            Clear selected items
-          </button>
-        </div> 
-         </div>
-       </div>
-     </div>
-    );
-  };
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0 sm:space-x-2 mt-4">
+            <button
+              onClick={handleAddItem}
+              className="bg-blue-500 text-white px-4 py-2 rounded w-full sm:w-auto"
+            >
+              Add Item
+            </button>
+            <button
+              onClick={handleSendSelectedItemsToForm}
+              className="bg-green-500 text-white px-4 py-2 rounded w-full sm:w-auto"
+            >
+              Send selected items to Pantry
+            </button>
+            <button
+              onClick={handleClearSelectedItems}
+              className="bg-red-500 text-white px-4 py-2 rounded w-full sm:w-auto"
+            >
+              Clear selected items
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );  
+    };
 
 export default ShoppingList;

@@ -165,13 +165,13 @@ const Form: React.FC = () => {
     <>
       <div className="flex-1 p-4 sm:p-6 md:p-8">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-center mb-6">Your Pantry</h2>
-        <div className="flex flex-col sm:flex-row items-center justify-center space-x-4 mb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-4 mb-8">
           <div className="flex-1">
             <input
               {...getInputProps({
                 name: 'name',
                 placeholder: 'Name',
-                className: 'py-2 px-2 md:px-3 border border-gray-400 rounded-lg my-2 sm:my-0',
+                className: 'py-2 px-2 md:px-3 border border-gray-400 rounded-lg my-2 sm:my-0 w-full',
               })}
             />
             <ul
@@ -196,44 +196,44 @@ const Form: React.FC = () => {
                   ))}
             </ul>
           </div>
-          <div className="relative flex-1">
-  <label {...getLabelProps()} className="sr-only">
-    Category
-  </label>
-  <button
-    {...getToggleButtonProps({
-      className: 'py-2 px-2 md:px-3 border border-gray-400 rounded-lg w-full text-left',
-    })}
-  >
-    {selectedCategory || 'Category'}
-  </button>
-  <ul
-    {...getCategoryMenuProps()}
-    className={`absolute bg-white border border-gray-300 rounded-lg w-full mt-1 z-10 ${
-      isCategoryOpen ? 'block' : 'hidden'
-    }`}
-  >
-    {isCategoryOpen &&
-      categories.map((category, index) => (
-        <li
-          key={category}
-          {...getCategoryItemProps({ item: category, index })}
-          className={`px-2 py-1 cursor-pointer`}
-        >
-          {category}
-        </li>
-      ))}
-  </ul>
-</div>
+          <div className="relative flex-1 mt-2 sm:mt-0">
+      <label {...getLabelProps()} className="sr-only">
+        Category
+      </label>
+      <button
+        {...getToggleButtonProps({
+          className: 'py-2 px-2 md:px-3 border border-gray-400 rounded-lg w-full text-left',
+        })}
+      >
+        {selectedCategory || 'Category'}
+      </button>
+      <ul
+        {...getCategoryMenuProps()}
+        className={`absolute bg-white border border-gray-300 rounded-lg w-full mt-1 z-10 ${
+          isCategoryOpen ? 'block' : 'hidden'
+        }`}
+      >
+        {isCategoryOpen &&
+          categories.map((category, index) => (
+            <li
+              key={category}
+              {...getCategoryItemProps({ item: category, index })}
+              className={`px-2 py-1 cursor-pointer`}
+            >
+              {category}
+            </li>
+          ))}
+      </ul>
+    </div>
           <button
             onClick={handleAddIngredient}
-            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 my-2 sm:my-0"
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 my-2 sm:my-0 w-full sm:w-auto"
           >
             Add
           </button>
         </div>
-    <div className="flex flex-col sm:flex-row items-center justify-center space-x-4 mb-8">
-    <div className="relative flex-1">
+    <div className="flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-4 mb-8">
+    <div className="relative flex-1 mt-2 sm:mt-0">
   <label {...getMoodLabelProps()} className="sr-only">
     Mood
   </label>
@@ -247,60 +247,58 @@ const Form: React.FC = () => {
   <ul
     {...getMoodMenuProps()}
     className={`absolute bg-white border border-gray-300 rounded-lg w-full mt-1 z-10 ${
-      isMoodOpen ? 'block' : 'hidden'
-    }`}
-  >
-    {isMoodOpen &&
-      moods.map((mood, index) => (
-        <li
-          key={mood.value}
-          {...getMoodItemProps({ item: mood, index })}
-          className={`px-2 py-1 cursor-pointer`}
-        >
-          {mood.label}
-        </li>
-      ))}
-  </ul>
-</div>
-
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <button
-          onClick={handleSubmit}
-          className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 my-2 sm:my-0"
-        >
-          Generate Recipes
-        </button>
-      )}
-    </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pl-6">
-      {[...new Set(form.map((ingredient) => ingredient.category).sort())].map((category) => (
-        <div key={category} className="bg-white p-4 rounded-lg shadow-md mt-4 md:mt-10 md:w-96 md:px-10">
-          <h3 className="text-lg font-bold mb-2">{category}:</h3>
-          <ol className="">
-            {form
-              .filter((ingredient) => ingredient.category === category)
-              .map((ingredient) => (
-                <li className="flex justify-between py-3 px-4 border-b border-gray-100" key={ingredient.id}>
-                  <span className="text-gray-600 mb-2 text-bold">{ingredient.name}</span>
-                  <button
-                    className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
-                    onClick={() => handleRemoveIngredient(ingredient.id)}
-                  >
-                    Remove
-                  </button>
-                </li>
-              ))}
-          </ol>
+      isMoodOpen ? 'block' : 'hidden'  }`}
+      >
+        {isMoodOpen &&
+          moods.map((mood, index) => (
+            <li
+              key={mood.value}
+              {...getMoodItemProps({ item: mood, index })}
+              className={`px-2 py-1 cursor-pointer`}
+            >
+              {mood.label}
+            </li>
+          ))}
+      </ul>
+      </div>
+      
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <button
+              onClick={handleSubmit}
+              className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 my-2 sm:my-0 w-full sm:w-auto"
+            >
+              Generate Recipes
+            </button>
+          )}
         </div>
-      ))}
-    </div>
-  </div>
-</>
-  );
-};
-
-export default Form;
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pl-6">
+          {[...new Set(form.map((ingredient) => ingredient.category).sort())].map((category) => (
+            <div key={category} className="bg-white p-4 rounded-lg shadow-md mt-4 md:mt-10 md:w-96 md:px-10">
+              <h3 className="text-lg font-bold mb-2">{category}:</h3>
+              <ol className="">
+                {form
+                  .filter((ingredient) => ingredient.category === category)
+                  .map((ingredient) => (
+                    <li className="flex justify-between py-3 px-4 border-b border-gray-100" key={ingredient.id}>
+                      <span className="text-gray-600 mb-2 text-bold">{ingredient.name}</span>
+                      <button
+                        className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                        onClick={() => handleRemoveIngredient(ingredient.id)}
+                      >
+                        Remove
+                      </button>
+                    </li>
+                  ))}
+              </ol>
+            </div>
+          ))}
+        </div>
+      </div>
+      </>
+      );
+      };
+      
+      export default Form;
 

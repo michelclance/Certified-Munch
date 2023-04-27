@@ -44,7 +44,7 @@ const CategoryDropdown: React.FC<CategoryDropdownProps> = ({
     <div className="relative inline-block text-left">
       <button
         {...getToggleButtonProps()}
-        className="p-2 rounded ml-6 border border-gray-300"
+        className="p-2 rounded ml-2 sm:ml-6 border border-gray-300"
       >
         {selectedItem || 'Category'}
       </button>
@@ -52,7 +52,7 @@ const CategoryDropdown: React.FC<CategoryDropdownProps> = ({
         {...getMenuProps()}
         className={`${
           isOpen ? 'block' : 'hidden'
-        } absolute mt-1 w-64 bg-white rounded shadow-lg z-[1000]`}
+        } absolute mt-1 w-64 bg-white rounded-lg shadow-lg z-10`}
       >
         {isOpen &&
           categories.map((category, index) => (
@@ -69,6 +69,7 @@ const CategoryDropdown: React.FC<CategoryDropdownProps> = ({
       </ul>
     </div>
   );
+  
 };
 
 export default CategoryDropdown;
