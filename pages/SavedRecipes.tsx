@@ -8,8 +8,7 @@ import {
   ChevronLeftIcon,
   HomeIcon,
   CurrencyDollarIcon,
-  PresentationChartBarIcon
-  
+  ListBulletIcon
 } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
 import RecipeSave from '../components/RecipeSave'
@@ -22,7 +21,7 @@ const navigation = [
   { name: 'Pantry', href: '/Pantry', icon: BuildingStorefrontIcon, current: false },
   { name: 'Feedback', href: '/Feedback', icon: InboxIcon, current: false },
   { name: 'Donate', href: '/Donate', icon: CurrencyDollarIcon, current: false },
-  { name: 'Shopping List', href: '/Shoppinglist', icon: PresentationChartBarIcon, current: false },
+  { name: 'Shopping List', href: '/Shoppinglist', icon: ListBulletIcon, current: false },
 ]
 
 function classNames(...classes: (string | undefined | null)[]): string {

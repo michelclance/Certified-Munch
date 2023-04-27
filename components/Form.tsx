@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import Loader from './Loader';
 import { useCombobox, useSelect } from 'downshift';
 
-const ingredientsList = ['Apple', 'Banana', 'Carrot', 'Beef', 'Chicken', 'Eggs', 'Milk', 'Tomato', 'Onion', 'Bread'];
+const ingredientsList = ['Apple', 'Banana', 'Carrot', ' Ground Beef', 'Chicken', 'Eggs', 'Milk', 'Tomato', 'Onion', 'Bread'];
 const ingredientCategoryMap = {
   Apple: 'Fruit 🍎',
   Banana: 'Fruit 🍎',

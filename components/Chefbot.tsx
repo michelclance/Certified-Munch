@@ -11,34 +11,7 @@ export default function Chatbot() {
   const [userMessage, setUserMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const sendMessage = async (e: FormEvent) => {
-    e.preventDefault();
-  
-    if (userMessage.trim() === '') {
-      return;
-    }
-  
-    // Add user message to the messages array
-    setMessages((prevMessages) => [...prevMessages, { sender: 'User', text: userMessage }]);
-  
-    // Call the API
-    try {
-      const response = await axios.post('/api/chefbot', { messages: [...messages.map((message) => message.text), userMessage] });
-  
-      // Add assistant response to the messages array
-      setMessages((prevMessages) => [...prevMessages, { sender: 'Assistant', text: response.data.assistant }]);
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        console.error('Error calling chatbot API:', error.message);
-      } else {
-        console.error('Error calling chatbot API:', error);
-      }
-      setMessages((prevMessages) => [...prevMessages, { sender: 'Assistant', text: 'Error occurred while processing your request. Please try again later.' }]);
-    }
-  
-    // Clear the user message input
-    setUserMessage('');
-  };
+
   
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -69,12 +42,12 @@ export default function Chatbot() {
           ))}
           <div ref={messagesEndRef} />
         </div>
-        <form onSubmit={sendMessage} className="flex-shrink-0">
+        <form  className="flex-shrink-0">
           <div className="flex">
             <input
               type="text"
               className="w-full border rounded-l px-4 py-2"
-              placeholder="Type your message"
+              placeholder="this shit isnt done :: dont waste your time"
               value={userMessage}
               onChange={handleInputChange}
             />

@@ -69,6 +69,11 @@ const RecipeSuggestions: React.FC<RecipeSuggestionsProps> = ({ recipeSuggestions
     the ai is small brain, it may give some wonky recipes. just click the button again to get new recipes
     </p>
     </div>
+    <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-200 relative">
+  <p className="text-gray-600 mb-2 font-bold">
+  if more people use this, the more features i will add,,, but some of ya'll are so damn lazy. does it hurt your little fingers to type the 5 ingredients that are taking up space in your nearly empty fridge?
+    </p>
+    </div>
     </>
 ) : (
   paragraphs.map((paragraph, index) => (

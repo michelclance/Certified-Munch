@@ -8,7 +8,8 @@ import {
   HomeIcon,
   CurrencyDollarIcon,
   BuildingStorefrontIcon,
-  ChevronLeftIcon
+  ChevronLeftIcon,
+  ListBulletIcon
 } from '@heroicons/react/24/outline'
 import Image from 'next/image';
 import Form from './Form';
@@ -234,3 +235,5 @@ const SideBarTwo = () => {
 }
 
 export default SideBarTwo
+
+

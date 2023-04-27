@@ -15,7 +15,7 @@ const chatBot = async (messages) => {
     const response = await openai.createCompletion({
       model: "gpt-3.5-turbo",
       prompt: `User: ${messages.join("\nUser: ")}\nAssistant:`,
-      max_tokens: 1000,
+      max_tokens: 100,
       temperature: 0.5,
     });
 

@@ -7,7 +7,8 @@ import {
   XMarkIcon,
   HomeIcon,
   CurrencyDollarIcon,
-  PresentationChartBarIcon
+  PresentationChartBarIcon,
+  ListBulletIcon
 } from '@heroicons/react/24/outline'
 import Image from 'next/image';
 import Form from './Form';
@@ -20,7 +21,7 @@ const navigation = [
   { name: 'Saved Recipes', href: '/SavedRecipes', icon: FolderIcon, current: false },
   { name: 'Feedback', href: '/Feedback', icon: InboxIcon, current: false },
   { name: 'Donate', href: '/Donate', icon: CurrencyDollarIcon, current: false },
-  { name: 'Shopping List', href: '/Shoppinglist', icon: PresentationChartBarIcon, current: false },
+  { name: 'Shopping List', href: '/Shoppinglist', icon: ListBulletIcon, current: false },
 ]
 
 function classNames(...classes: (string | undefined | null)[]): string {
