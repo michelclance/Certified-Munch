@@ -74,6 +74,11 @@ const RecipeSuggestions: React.FC<RecipeSuggestionsProps> = ({ recipeSuggestions
   if more people use this, the more features i will add,,, but some of yall are so damn lazy loll. does it hurt your wittle fingers to type the 5 ingredients that are taking up space in your nearly empty fridge??
     </p>
     </div>
+    <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-200 relative">
+  <p className="text-gray-600 mb-2 font-bold">
+  best on desktop, mobile is kind of shit but still works
+    </p>
+    </div>
     </>
 ) : (
   paragraphs.map((paragraph, index) => (
